@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  house_id: 
+  user_id: 1
+  contract_date_start: 
+  contract_date_end: 
+  contract_status: MyString
+
+two:
+  house_id: 
+  user_id: 1
+  contract_date_start: 
+  contract_date_end: 
+  contract_status: MyString

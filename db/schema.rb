@@ -10,7 +10,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_05_30_044351) do
+ActiveRecord::Schema.define(version: 2018_05_31_160552) do
+
+  create_table "contracts", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.integer "house_id"
+    t.integer "user_id"
+    t.datetime "contract_date_start"
+    t.datetime "contract_date_end"
+    t.string "contract_status", limit: 30
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "houses", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.text "address"
