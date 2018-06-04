@@ -16,6 +16,9 @@ class HousesController < ApplicationController
   # POST /houses.json
   def create
     @house = House.new(house_params)
+    if !@house.house_status
+      @house_status = "available"
+    end
 
     if @house.save
       render :show, status: :created, location: @house
