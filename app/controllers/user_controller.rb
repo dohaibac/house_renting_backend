@@ -1,4 +1,9 @@
 class UserController < ApplicationController
+
+	rescue_from ActiveRecord::RecordNotFound do |e|
+    render_json_error :not_found, :user_not_found
+  end
+
 	def create
 		@user = User.new(user_params)
 

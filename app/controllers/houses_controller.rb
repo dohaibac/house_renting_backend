@@ -1,6 +1,10 @@
 class HousesController < ApplicationController
   before_action :set_house, only: [:show, :update, :destroy]
 
+  rescue_from ActiveRecord::RecordNotFound do |e|
+    render_json_error :not_found, :house_not_found
+  end
+
   # GET /houses
   # GET /houses.json
   def index
@@ -16,9 +20,7 @@ class HousesController < ApplicationController
   # POST /houses.json
   def create
     @house = House.new(house_params)
-    if !@house.house_status
-      @house_status = "available"
-    end
+    @house.house_status = "available"
 
     if @house.save
       render :show, status: :created, location: @house
