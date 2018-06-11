@@ -7,4 +7,10 @@ class House < ApplicationRecord
 	    where('address LIKE ? OR description LIKE ? OR province LIKE ? ', "%#{search_tearm}%", "%#{search_tearm}%", "%#{search_tearm}%").order('id DESC')
 	  end
 	end
+
+	def self.get_owner(owner_id)
+		if owner_id
+			where('house_owner = ? ', "#{owner_id}" )
+		end
+	end
 end

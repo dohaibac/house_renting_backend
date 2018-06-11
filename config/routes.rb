@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-  resources :contracts
 	resources :session, only: [:create, :destroy], default: {format: :json}
   resources :houses
   resources :user, only: [:create, :show], default: {format: :json}

@@ -9,7 +9,7 @@ class HousesController < ApplicationController
   # GET /houses.json
   def index
     if params[:owner_id] then
-      @houses = House.find_by_house_owner(params[:owner_id])
+      @houses = House.get_owner(params[:owner_id])
     else
       if params[:search] then
         @houses = House.search(params[:search])
