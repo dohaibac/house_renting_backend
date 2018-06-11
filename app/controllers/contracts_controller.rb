@@ -16,6 +16,11 @@ class ContractsController < ApplicationController
   # POST /contracts.json
   def create
     @contract = Contract.new(contract_params)
+    @contract.contract_status = "pending"
+    
+    @house = House.find(@contract.house_id)
+    @house.house_status = "Rented"
+    @house.save
 
     if @contract.save
       render :show, status: :created, location: @contract

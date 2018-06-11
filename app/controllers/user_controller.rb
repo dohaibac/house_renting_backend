@@ -4,6 +4,11 @@ class UserController < ApplicationController
     render_json_error :not_found, :user_not_found
   end
 
+  def show
+  	@user = User.find(params[:id])
+  	render :show
+  end
+
 	def create
 		@user = User.new(user_params)
 
