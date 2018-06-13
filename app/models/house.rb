@@ -1,6 +1,5 @@
 class House < ApplicationRecord
 	belongs_to :user, :foreign_key => :house_owner
-	has_many :contracts
 
 	def self.search(search_tearm)
 		if search_tearm

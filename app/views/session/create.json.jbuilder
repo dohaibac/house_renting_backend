@@ -4,6 +4,7 @@
 			:id,
 			:display_name,
 			:email,
-			:user_type
+			:user_type,
+			:fbname
 			)
 	end
