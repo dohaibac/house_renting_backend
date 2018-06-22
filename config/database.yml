@@ -45,7 +45,10 @@ test:
 # You can use this database configuration with:
 #
 production:
-  <<: *default
+  adapter: postgresql
+  host: localhost
+  username: user
+  database: app-dev
   url: <%= ENV['DATABASE_URL'] %>
 #
 #production:
