@@ -4,4 +4,9 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
+
+  after_create :send_welcome
+  def send_welcome
+  	WelcomeUserMailer.send_welcome(self).deliver
+  end
 end
